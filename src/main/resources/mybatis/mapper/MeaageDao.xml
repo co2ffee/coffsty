@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dlj.blog.dao.MessageDao">
+    <select id="searchAllMessage" resultType="Message">
+        select m.id, u.nickname, m.user_id, m.content, u.avatar, m.create_time, m.parent_message_id
+        from coffsty.t_message m,coffsty.t_user u
+        where m.parent_message_id = #{id} and m.user_id=u.id
+        order by m.create_time desc
+    </select>
+
+    <insert id="saveMessage" parameterType="Message">
+        insert into coffsty.t_message (user_id,content,create_time,parent_message_id)
+        values (#{userId},#{content},#{createTime},#{parentMessageId});
+    </insert>
+</mapper>

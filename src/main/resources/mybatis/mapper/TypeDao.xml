@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dlj.blog.dao.TypeDao">
+    <!--根据id分类查询博客-->
+    <select id="getTypeBlogPageInfo" resultType="BlogPageInfo">
+        select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description,
+        b.flag_id,f.flag_name ,
+        u.nickname, u.avatar
+        from coffsty.t_blog b, coffsty.t_flag f,coffsty.t_user u
+        where b.flag_id = f.id and u.id = b.user_id
+        <if test="flagId!=-1">and b.flag_id=#{flagId}</if>
+        order by b.update_time desc
+    </select>
+
+<!--查询所有分类和对应的博客-->
+    <resultMap id="flagAndBlog" type="Flag">
+        <id property="id" column="fid"/>
+        <result property="flagName" column="flag_name"/>
+        <collection property="blogs" ofType="Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+            <result property="flagId" column="flag_id"/>
+        </collection>
+    </resultMap>
+    <select id="getAllFlag" resultMap="flagAndBlog">
+        select f.id fid,f.flag_name,b.id bid,b.title,b.flag_id
+        from t_flag f,t_blog b
+        where b.flag_id=f.id
+    </select>
+</mapper>
