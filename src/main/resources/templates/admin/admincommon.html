@@ -15,16 +15,16 @@
         <div class="ui inverted secondary menu">
             <h2 class="ui olive header item" style="font-family: STSong">管理后台</h2>
             <!--<div class="right m-item item m-mobile-hide">-->
-            <a href="#" th:href="@{/adminindex}" class="m-item item"
+            <a href="#" th:href="@{/admin/index}" class="m-item item"
                th:classappend="${page == 'adminindex'} ? 'active' : ''">
                 <i class="home icon"></i>后台首页</a>
-            <a href="#" th:href="@{/adminblog}" class="m-item item m-mobile-hide"
+            <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"
                th:classappend="${page == 'adminblog'} ? 'active' : ''">
                 <i class="clone outline icon"></i>文章管理</a>
-            <a href="#" th:href="@{/admintype}" class="m-item item m-mobile-hide"
+            <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"
                th:classappend="${page == 'admintype'} ? 'active' : ''">
                 <i class="music icon"></i>分类管理</a>
-            <a href="#" th:href="@{/adminpicture}" class="m-item item m-mobile-hide"
+            <a href="#" th:href="@{/admin/pictures}" class="m-item item m-mobile-hide"
                th:classappend="${page == 'adminpicture'} ? 'active' : ''">
                 <i class="book icon"></i>相册管理</a>
             <!--</div>-->

@@ -12,8 +12,8 @@
 </head>
 <body>
 
-  <!--导航-->
-  <div th:replace="common :: commonHead"></div>
+<!--导航栏-->
+<div th:replace="admin/admincommon :: commonHead"></div>
 
 
   <div class="m-padded-tb-hugex">
@@ -140,11 +140,11 @@
   <br>
   <br>
 
-  <!--底部栏-->
-  <div th:replace="common :: commonFoot"></div>
+<!--底部栏-->
+<div th:replace="admin/admincommon :: commonFoot"></div>
 
-  <!--公用脚本-->
-  <div th:replace="common :: commonScript"></div>
+<!--公用脚本-->
+<div th:replace="admin/admincommon :: commonScript"></div>
 
   <script>
     $('.ui.dropdown').dropdown({

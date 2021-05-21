@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:mysql://47.98.60.238:3306/coffsty
     username: root
-    password: Dlj123456
+    password: Dlj20000102@Dlj
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     druid:
